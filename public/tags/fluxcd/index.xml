@@ -10,15 +10,15 @@
 		
 		
 		
-			<lastBuildDate>Mon, 06 Jul 2026 13:00:52 +0200</lastBuildDate>
+			<lastBuildDate>Mon, 06 Jul 2026 16:12:52 +0200</lastBuildDate>
 		
 			<atom:link href="http://localhost:1313/tags/fluxcd/index.xml" rel="self" type="application/rss+xml" />
 			<item>
-				<title>Configuring FluxCD for my kubernetes homelab</title>
-				<link>http://localhost:1313/posts/homelab-fluxcd-setup/</link>
-				<pubDate>Mon, 06 Jul 2026 13:00:52 +0200</pubDate>
-				<guid>http://localhost:1313/posts/homelab-fluxcd-setup/</guid>
-				<description></description>
+				<title>Bootstrapping my new bare-metal kubernetes cluster with talos and fluxcd</title>
+				<link>http://localhost:1313/posts/bootstrapping-talos-and-flux/</link>
+				<pubDate>Mon, 06 Jul 2026 16:12:52 +0200</pubDate>
+				<guid>http://localhost:1313/posts/bootstrapping-talos-and-flux/</guid>
+				<description>&lt;p&gt;After using &lt;a href=&#34;https://www.proxmox.com/en/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;proxmox&lt;/a&gt; on my homelab for a few years and virtualizing my workloads (both kubernetes and regular VMs), i decided that i wanted to 1) remove the virtualization overhead as i was just wasting resources on a virtualization-layer i did not want to maintain, and 2) make the switch from &lt;a href=&#34;https://k3s.io/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;k3s&lt;/a&gt; to &lt;a href=&#34;https://www.siderolabs.com/talos-linux&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Talos&lt;/a&gt; for my kubernetes clusters (calling it a &amp;ldquo;cluster&amp;rdquo; is a stretch as i currently just have one node).&lt;/p&gt;&#xA;&lt;p&gt;K3s is a great technology for running kubernetes with a low footprint, but for the same reason i wanted to move away from proxmox, i wanted to move away from k3s because i really do not care about maintaining the OS of my kubernetes node(s). Granted, there is a certain level of &amp;ldquo;OS-management&amp;rdquo; you have to do on Talos aswell, but the scope is considerably smaller and reasonably easy to perform using &lt;code&gt;taloscli&lt;/code&gt; instead of spending a lot of time writing ansible-playbooks.&lt;/p&gt;</description>
 			</item>
 	</channel>
 </rss>
