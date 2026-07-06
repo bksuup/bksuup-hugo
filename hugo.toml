@@ -1,7 +1,7 @@
 baseurl = "https://blog.bkristian.net/"
 title = "Home"
 theme = "hugo-coder"
-languagecode = "en"
+locale = "en"
 defaultcontentlanguage = "en"
 
 
@@ -17,7 +17,7 @@ style = "github-dark"
 
 [params]
   author = "Bjørn Kristian Strand"
-  info = "Kuberntes Engineer @ Telenor"
+  info = "Kubernetes Engineer @ Telenor"
   description = "Personal Blog"
   keywords = "blog,developer,personal"
   avatarurl = "images/fugl.jpeg"
@@ -45,15 +45,15 @@ style = "github-dark"
 
 # Social links
 [[params.social]]
-  name = "Github"
-  icon = "fa-brands fa-github fa-2x"
-  weight = 1
-  url = "https://github.com/bksuup"
-[[params.social]]
   name = "Gitlab"
   icon = "fa-brands fa-gitlab fa-2x"
-  weight = 2
+  weight = 1
   url = "https://gitlab.com/bksuup"
+[[params.social]]
+  name = "Github"
+  icon = "fa-brands fa-github fa-2x"
+  weight = 2
+  url = "https://github.com/bksuup"
 # Menu links
 [[menu.main]]
   name = "Blog"

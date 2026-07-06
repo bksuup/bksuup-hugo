@@ -10,7 +10,7 @@ Platform & Infrastructure engineer focusing primarily on Infrastructure as Code 
 
 \[ March 2026 - Current \]
 
-- Working with Telenor's on-premise kuberntes platform
+- Working with Telenor's on-premise kubernetes platform
 
 ### Public Cloud Engineer (Azure) @ Orange Business
 

@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Bjørn Kristian Strand on Home</title>
-    <link>http://localhost:1313/authors/bj%C3%B8rn-kristian-strand/</link>
-    <description>Recent content in Bjørn Kristian Strand on Home</description>
-    <generator>Hugo</generator>
-    <language>en</language>
-    <lastBuildDate>Sun, 29 Mar 2026 18:02:43 +0200</lastBuildDate>
-    <atom:link href="http://localhost:1313/authors/bj%C3%B8rn-kristian-strand/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>About</title>
-      <link>http://localhost:1313/about/</link>
-      <pubDate>Sun, 29 Mar 2026 18:02:43 +0200</pubDate>
-      <guid>http://localhost:1313/about/</guid>
-      <description>&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;&#xA;&lt;h1 id=&#34;work-experience&#34;&gt;&#xA;  Work Experience&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#work-experience&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;h3 id=&#34;butikkmedarbeider---coop-extra-nordkjosbotn&#34;&gt;&#xA;  Butikkmedarbeider - Coop Extra Nordkjosbotn&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#butikkmedarbeider---coop-extra-nordkjosbotn&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;Sept. 2019 - Apr. 2023&lt;/p&gt;</description>
-    </item>
-  </channel>
+	<channel>
+		<title>Bjørn Kristian Strand on Home</title>
+		<link>http://localhost:1313/authors/bj%C3%B8rn-kristian-strand/</link>
+		<description>Recent content in Bjørn Kristian Strand on Home</description>
+		<generator>Hugo</generator>
+		<language>en</language>
+		
+		
+		
+		
+			<lastBuildDate>Mon, 06 Jul 2026 13:00:52 +0200</lastBuildDate>
+		
+			<atom:link href="http://localhost:1313/authors/bj%C3%B8rn-kristian-strand/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Configuring FluxCD for my kubernetes homelab</title>
+				<link>http://localhost:1313/posts/homelab-fluxcd-setup/</link>
+				<pubDate>Mon, 06 Jul 2026 13:00:52 +0200</pubDate>
+				<guid>http://localhost:1313/posts/homelab-fluxcd-setup/</guid>
+				<description></description>
+			</item>
+	</channel>
 </rss>
