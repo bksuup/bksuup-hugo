@@ -1,5 +1,5 @@
 +++ 
-draft = true
+draft = false
 date = 2026-07-06T16:12:52+02:00
 title = "Bootstrapping my new bare-metal kubernetes cluster with talos"
 description = "How i built my new bare-metal kubernetes cluster running talos"
