@@ -22,9 +22,9 @@ style = "github-dark"
   keywords = "blog,developer,personal"
   avatarurl = "images/fugl.jpeg"
 
-  faviconSVG = "/img/favicon.svg"
-  favicon_32 = "/img/favicon-32x32.png"
-  favicon_16 = "/img/favicon-16x16.png"
+  faviconSVG = "images/favicon.ico"
+  favicon_32 = "images/favicon.ico"
+  favicon_16 = "images/favicon.ico"
 
   since = 2026
 
