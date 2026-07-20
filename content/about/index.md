@@ -2,15 +2,15 @@
 title = "About"
 +++
 
-Platform & Infrastructure engineer focusing primarily on Infrastructure as Code (IaC) deployments using technologies like Azure Bicep, Terraform, Ansible, Kubernetes and DevOps practices, with a background as a security analyst.
+Platform Engineer working with technologies like Kubernetes, GitOps and Terraform, with a background as a Security Analyst
 
 # Work Experience
 
-### Cloud Technical Expert @ Telenor
+### Platform Engineer @ Telenor
 
 \[ March 2026 - Current \]
 
-- Working with Telenor's on-premise kubernetes platform
+- Working with Telenor's IDP offering running kubernetes environments in Azure
 
 ### Public Cloud Engineer (Azure) @ Orange Business
 

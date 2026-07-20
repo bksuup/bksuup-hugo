@@ -17,7 +17,7 @@ K3s is a great technology for running kubernetes with a low footprint, but for t
 
 This post won't go too much into detail on the physical setup (mostly because it's not really that interesting), but in short, i have a single physical machine with 8 cores (16 threads), 32gb of DDR4 RAM, 1tb NVME-ssd, and has a single nic that plugs into my home-router. This is more than enough for running some homelab workloads on kubernetes.
 
-All the code for this cluster is located at [bk-homelab/quasar](https://gitlab.com/bk-homelab/quasar)
+All the code for this cluster is located at [bk-homelab/quasar](https://github.com/bksuup/quasar)
 
 ## Installing Talos
 
