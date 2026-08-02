@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
-		<title>Posts on Home</title>
-		<link>http://localhost:1313/posts/</link>
-		<description>Recent content in Posts on Home</description>
+		<title>Homelab on Home</title>
+		<link>http://localhost:1313/categories/homelab/</link>
+		<description>Recent content in Homelab on Home</description>
 		<generator>Hugo</generator>
 		<language>en</language>
 		
@@ -12,20 +12,13 @@
 		
 			<lastBuildDate>Sun, 02 Aug 2026 14:21:21 +0200</lastBuildDate>
 		
-			<atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+			<atom:link href="http://localhost:1313/categories/homelab/index.xml" rel="self" type="application/rss+xml" />
 			<item>
 				<title>How i&#39;m setting up my kubernetes homelab</title>
 				<link>http://localhost:1313/posts/installing-talos/</link>
 				<pubDate>Sun, 02 Aug 2026 14:21:21 +0200</pubDate>
 				<guid>http://localhost:1313/posts/installing-talos/</guid>
 				<description>&lt;p&gt;After having used proxmox on my homelab for a couple of years and virtualizing all my workloads (including my kubernetes clusters) i am now moving to bare metal kubernetes for a couple of reasons. 1) I have no interrest in maintaining a virtualization layer in my homelab. and 2) I&amp;rsquo;m moving over from k3s to talos, so my kubernetes setup is getting overhauled either way.&lt;/p&gt;&#xA;&lt;p&gt;K3s is a great technology for running kubernetes with a low footprint, but for the same reason i wanted to move away from proxmox, i wanted to move away from k3s because i really do not care about maintaining the OS of my kubernetes node(s). Granted, there is a certain level of &amp;ldquo;OS-management&amp;rdquo; you have to do on Talos aswell, but the scope is considerably smaller and is reasonably easy to perform using &lt;code&gt;talosctl&lt;/code&gt; instead of spending a lot of time writing ansible-playbooks.&lt;/p&gt;</description>
-			</item>
-			<item>
-				<title>How i configure LSP in Neovim</title>
-				<link>http://localhost:1313/posts/neovim-lsp-configuration/</link>
-				<pubDate>Tue, 28 Jul 2026 19:23:28 +0200</pubDate>
-				<guid>http://localhost:1313/posts/neovim-lsp-configuration/</guid>
-				<description>&lt;p&gt;One of the most challenging things to configure as a new user to Neovim is the LSP integration, and i&amp;rsquo;ve personally spent more hours than i would like to admit on trying to have a setup that is merely &lt;em&gt;&amp;ldquo;decent&amp;rdquo;&lt;/em&gt;. So now that i am happy with my LSP setup, i wanted to go into detail on how it works, such that i can &lt;em&gt;(maybe)&lt;/em&gt; save you some time on your own configuration.&lt;/p&gt;</description>
 			</item>
 	</channel>
 </rss>

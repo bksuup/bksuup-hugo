@@ -10,15 +10,22 @@
 		
 		
 		
-			<lastBuildDate>Mon, 06 Jul 2026 21:51:53 +0200</lastBuildDate>
+			<lastBuildDate>Sun, 02 Aug 2026 14:21:21 +0200</lastBuildDate>
 		
 			<atom:link href="http://localhost:1313/authors/bj%C3%B8rn-kristian-strand/index.xml" rel="self" type="application/rss+xml" />
 			<item>
-				<title>Installing FluxCD for gitops</title>
-				<link>http://localhost:1313/posts/installing-fluxcd/</link>
-				<pubDate>Mon, 06 Jul 2026 21:51:53 +0200</pubDate>
-				<guid>http://localhost:1313/posts/installing-fluxcd/</guid>
-				<description>&lt;h2 id=&#34;fluxcd-vs-argocd&#34;&gt;&#xA;  FluxCD vs ArgoCD&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#fluxcd-vs-argocd&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;At the end of the day, i find FluxCD to be the more intuitive and well-integrated CD-solution, so that is what i have gone for&lt;/p&gt;&#xA;&lt;h2 id=&#34;repository-structure&#34;&gt;&#xA;  Repository structure&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#repository-structure&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;h3 id=&#34;artefacts&#34;&gt;&#xA;  Artefacts&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#artefacts&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;h3 id=&#34;infrastructure&#34;&gt;&#xA;  Infrastructure&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#infrastructure&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;h3 id=&#34;apps&#34;&gt;&#xA;  Apps&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#apps&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;h2 id=&#34;bootstrapping-fluxcd&#34;&gt;&#xA;  Bootstrapping FluxCD&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#bootstrapping-fluxcd&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;h3 id=&#34;ssh-authentication&#34;&gt;&#xA;  SSH-authentication&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#ssh-authentication&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;</description>
+				<title>How i am setting up my kubernetes homelab</title>
+				<link>http://localhost:1313/posts/installing-talos/</link>
+				<pubDate>Sun, 02 Aug 2026 14:21:21 +0200</pubDate>
+				<guid>http://localhost:1313/posts/installing-talos/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>How i configure LSP in Neovim</title>
+				<link>http://localhost:1313/posts/neovim-lsp-configuration/</link>
+				<pubDate>Tue, 28 Jul 2026 19:23:28 +0200</pubDate>
+				<guid>http://localhost:1313/posts/neovim-lsp-configuration/</guid>
+				<description>&lt;p&gt;One of the most challenging things to configure as a new user to Neovim is the LSP integration, and i&amp;rsquo;ve personally spent more hours than i would like to admit on trying to have a setup that is merely &lt;em&gt;&amp;ldquo;decent&amp;rdquo;&lt;/em&gt;. So now that i am happy with my LSP setup, i wanted to go into detail on how it works, such that i can &lt;em&gt;(maybe)&lt;/em&gt; save you some time on your own configuration.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Bootstrapping my new bare-metal kubernetes cluster with talos</title>

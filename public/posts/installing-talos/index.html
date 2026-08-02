@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  How i&#39;m setting up my kubernetes homelab · Home
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Bjørn Kristian Strand">
+<meta name="description" content="A walkthrough of how i get my homelab setup with talos and fluxcd">
+<meta name="keywords" content="blog,developer,personal">
+
+
+
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="How i&#39;m setting up my kubernetes homelab">
+	<meta name="twitter:description" content="A walkthrough of how i get my homelab setup with talos and fluxcd">
+
+<meta property="og:url" content="http://localhost:1313/posts/installing-talos/">
+	<meta property="og:site_name" content="Home">
+	<meta property="og:title" content="How i&#39;m setting up my kubernetes homelab">
+	<meta property="og:description" content="A walkthrough of how i get my homelab setup with talos and fluxcd">
+	<meta property="og:locale" content="en">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="posts">
+		<meta property="article:published_time" content="2026-08-02T14:21:21+02:00">
+		<meta property="article:modified_time" content="2026-08-02T14:21:21+02:00">
+		<meta property="article:tag" content="Talos">
+		<meta property="article:tag" content="Flux">
+		<meta property="article:tag" content="Kubernetes">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/installing-talos/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon.ico" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon.ico" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Home
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/projects/">Projects</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/installing-talos/">
+              How i&#39;m setting up my kubernetes homelab
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2026-08-02T14:21:21&#43;02:00">
+                August 2, 2026
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              4-minute read
+            </span>
+          </div>
+          <div class="authors">
+  <i class="fa-solid fa-user" aria-hidden="true"></i>
+    <a href="/authors/bj%C3%B8rn-kristian-strand/">Bjørn Kristian Strand</a></div>
+
+          <div class="categories">
+  <i class="fa-solid fa-folder" aria-hidden="true"></i>
+    <a href="/categories/homelab/">Homelab</a></div>
+
+          <div class="tags">
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/talos/">Talos</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/flux/">Flux</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/kubernetes/">Kubernetes</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <p>After having used proxmox on my homelab for a couple of years and virtualizing all my workloads (including my kubernetes clusters) i am now moving to bare metal kubernetes for a couple of reasons. 1) I have no interrest in maintaining a virtualization layer in my homelab. and 2) I&rsquo;m moving over from k3s to talos, so my kubernetes setup is getting overhauled either way.</p>
+<p>K3s is a great technology for running kubernetes with a low footprint, but for the same reason i wanted to move away from proxmox, i wanted to move away from k3s because i really do not care about maintaining the OS of my kubernetes node(s). Granted, there is a certain level of &ldquo;OS-management&rdquo; you have to do on Talos aswell, but the scope is considerably smaller and is reasonably easy to perform using <code>talosctl</code> instead of spending a lot of time writing ansible-playbooks.</p>
+<p>All the code for this cluster is located at <a href="https://github.com/bksuup/quasar"  class="external-link" target="_blank" rel="noopener">bksuup/quasar</a></p>
+<h2 id="general-overview-of-the-setup">
+  General overview of the setup
+  <a class="heading-link" href="#general-overview-of-the-setup">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>As mentioned, this new setup will be using <a href="https://docs.siderolabs.com/talos/v1.13/overview/what-is-talos"  class="external-link" target="_blank" rel="noopener">Talos</a> as the kubernetes operating-system, and i&rsquo;ll be using <a href="https://fluxcd.io/flux/"  class="external-link" target="_blank" rel="noopener">FluxCD</a> as my gitops solution. Other notible choices of software wich will be covered in this post is: <a href="https://docs.cilium.io/en/stable/"  class="external-link" target="_blank" rel="noopener">Cilium</a> as my CNI and <a href="https://longhorn.io/docs/1.12.0/"  class="external-link" target="_blank" rel="noopener">Longhorn</a> for block storage.</p>
+<p>This new setup is running Talos on just one physical node for a couple of reasons.</p>
+<ol>
+<li>This cluster is not &ldquo;production&rdquo; in the sense that i have no fear of loosing any data hosted in the cluster. This clusters entire purpose is to function as a lab-environment.</li>
+<li>As mentioned, i&rsquo;m not interessted in managing a virtualization-layer so that i can run my kubernetes-cluster in proxmox-VM&rsquo;s. There is a certain level of management that i don&rsquo;t want to do, and i want the most ammount of &ldquo;raw compute&rdquo; that i can get going to my cluster instead of being lost through virtualization.</li>
+<li>Hardware is expensive, and for a lab-environment, the benefits of having two more physical nodes does not justify the cost.</li>
+</ol>
+<p>So, in short: one bare-metal host running talos-linux, using Cilium as a CNI, fluxcd for gitops, and longhorn for block-storage. Quite simple.</p>
+<h2 id="install-prerequisites">
+  Install prerequisites
+  <a class="heading-link" href="#install-prerequisites">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="tools">
+  Tools
+  <a class="heading-link" href="#tools">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>There are a few thing we have to consider when installing this cluster.
+Firstly, i&rsquo;ll be doing this manually.
+There are several ways to automate the install process with tools like terraform and ansible, but for me, this is a one-time setup where the focus is not on &ldquo;automating the install&rdquo;, but just &ldquo;get a cluster up and running&rdquo;, so automating it isn&rsquo;t something i want to spent time on (though you will learn a lot from it if you do).
+For the manual install process you need to install a few cli tools:</p>
+<ul>
+<li><a href="https://fluxcd.io/flux/cmd/"  class="external-link" target="_blank" rel="noopener">flux-cli</a></li>
+<li><a href="https://docs.siderolabs.com/talos/v1.13/getting-started/talosctl"  class="external-link" target="_blank" rel="noopener">talosctl</a></li>
+<li><a href="https://kubernetes.io/docs/tasks/tools/#kubectl"  class="external-link" target="_blank" rel="noopener">kubectl</a></li>
+<li><a href="https://helm.sh/docs/intro/install/"  class="external-link" target="_blank" rel="noopener">helm</a></li>
+<li><a href="https://docs.cilium.io/en/stable/gettingstarted/k8s-install-default/#install-the-cilium-cli"  class="external-link" target="_blank" rel="noopener">cilium cli</a> (optional, not needed for the install)</li>
+<li><a href="https://k9scli.io/topics/install/"  class="external-link" target="_blank" rel="noopener">k9s</a> (optional, but extremely nice2have)</li>
+</ul>
+<h3 id="talos-system-extensions">
+  Talos system extensions
+  <a class="heading-link" href="#talos-system-extensions">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Since i&rsquo;ll be using Longhorn as my block-storage provider, i have to download the Talos ISO image with a couple of system extensions installed (you can read more at <a href="https://docs.siderolabs.com/kubernetes-guides/csi/longhorn"  class="external-link" target="_blank" rel="noopener">longhorn#prerequisites</a>). These include <code>siderolabs/iscsi-tools</code> and <code>siderolabs/util-linux-tools</code>.
+These are the only two system extensions needed for this install.</p>
+<blockquote>
+<p>Since Talos is an immutable linux distro, you cannot &ldquo;just install&rdquo; the extensions in the running cluster. The extensions are baked into the image, so if you need to install new extensions down the line, you will have to download a new image with all the extensions installed and patch the cluster with the new iso image.</p>
+</blockquote>
+<h3 id="repository-setup">
+  Repository setup
+  <a class="heading-link" href="#repository-setup">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>I will be following <a href="https://github.com/fluxcd/flux2-kustomize-helm-example"  class="external-link" target="_blank" rel="noopener">this guide</a> from fluxcd on how to structure your repository. The final structure looks like this.</p>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>quasar
+</span></span><span style="display:flex;"><span>├── apps
+</span></span><span style="display:flex;"><span>│   ├── base
+</span></span><span style="display:flex;"><span>│   └── prod
+</span></span><span style="display:flex;"><span>├── clusters
+</span></span><span style="display:flex;"><span>│   └── prod
+</span></span><span style="display:flex;"><span>└── infrastructure
+</span></span><span style="display:flex;"><span>    ├── base
+</span></span><span style="display:flex;"><span>    └── prod
+</span></span></code></pre></div><p>This allows me to add a staging cluster down the line without having to change the structure of the repo, or re-write deployments.</p>
+<h3 id="talos-machine-config">
+  Talos Machine Config
+  <a class="heading-link" href="#talos-machine-config">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>There are a couple of settings i&rsquo;ll have to set when creating the machine config for talos, i&rsquo;ll list them here along with the documentation if you&rsquo;re interested to read more, but they&rsquo;re pretty self-explanatory.</p>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"># prerequisite for cilium install</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"># https://docs.siderolabs.com/kubernetes-guides/cni/deploying-cilium#machine-configuration-prerequisites</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#7ee787">cluster</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">network</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span><span style="color:#7ee787">cni</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">      </span><span style="color:#7ee787">name</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">none</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">proxy</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span><span style="color:#7ee787">disabled</span>:<span style="color:#6e7681"> </span><span style="color:#79c0ff">true</span><span style="color:#6e7681">
+</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"># Allow scheduling of workloads on control plane nodes since it is a single node cluster</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"># https://docs.siderolabs.com/talos/v1.13/deploy-and-manage-workloads/workloads-on-controlplane</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#7ee787">cluster</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">allowSchedulingOnControlPlanes</span>:<span style="color:#6e7681"> </span><span style="color:#79c0ff">true</span><span style="color:#6e7681">
+</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"># pre-requisite for metrics-server</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"># https://docs.siderolabs.com/kubernetes-guides/monitoring-and-observability/deploy-metrics-server</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#7ee787">machine</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">kubelet</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span><span style="color:#7ee787">extraArgs</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">      </span><span style="color:#7ee787">rotate-server-certificates</span>:<span style="color:#6e7681"> </span><span style="color:#79c0ff">true</span><span style="color:#6e7681">
+</span></span></span></code></pre></div><p>Additionally, when first booting talos on my home-network, the machine will get a DHCP-assigned IP which will change when the machine reboots. This following talos patch is used to set static ip and other network settings.
+You can find the interface name by running the following <code>talosctl</code> command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>talosctl -n &lt;node-ip&gt; get links
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#7ee787">machine</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">network</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span><span style="color:#7ee787">interfaces</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">      </span>- <span style="color:#7ee787">interface</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&lt;interface-name&gt;</span><span style="color:#6e7681"> </span><span style="color:#8b949e;font-style:italic"># use your actual interface name</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#7ee787">dhcp</span>:<span style="color:#6e7681"> </span><span style="color:#79c0ff">false</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#7ee787">addresses</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">          </span>- <span style="color:#a5d6ff">&lt;static-ip&gt;/&lt;network-mask&gt;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#7ee787">routes</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">          </span>- <span style="color:#7ee787">network</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">0.0.0.0</span><span style="color:#a5d6ff">/0</span><span style="color:#6e7681"> </span><span style="color:#8b949e;font-style:italic"># Default route</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span><span style="color:#7ee787">gateway</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&lt;gateway-ip&gt;</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span><span style="color:#7ee787">nameservers</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">      </span>- <span style="color:#a5d6ff">&lt;ns-ip&gt;</span><span style="color:#6e7681">
+</span></span></span></code></pre></div>
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Bjørn Kristian Strand 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

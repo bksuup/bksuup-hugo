@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Temp on Home</title>
+		<link>http://localhost:1313/categories/temp/</link>
+		<description>Recent content in Temp on Home</description>
+		<generator>Hugo</generator>
+		<language>en</language>
+		
+		
+		
+		
+			<lastBuildDate>Tue, 28 Jul 2026 19:23:28 +0200</lastBuildDate>
+		
+			<atom:link href="http://localhost:1313/categories/temp/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>How i configure LSP in Neovim</title>
+				<link>http://localhost:1313/posts/neovim-lsp-configuration/</link>
+				<pubDate>Tue, 28 Jul 2026 19:23:28 +0200</pubDate>
+				<guid>http://localhost:1313/posts/neovim-lsp-configuration/</guid>
+				<description>&lt;p&gt;One of the most challenging things to configure as a new user to Neovim is the LSP integration, and i&amp;rsquo;ve personally spent more hours than i would like to admit on trying to have a setup that is merely &lt;em&gt;&amp;ldquo;decent&amp;rdquo;&lt;/em&gt;. So now that i am happy with my LSP setup, i wanted to go into detail on how it works, such that i can &lt;em&gt;(maybe)&lt;/em&gt; save you some time on your own configuration.&lt;/p&gt;</description>
+			</item>
+	</channel>
+</rss>

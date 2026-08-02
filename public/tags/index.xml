@@ -10,27 +10,41 @@
 		
 		
 		
-			<lastBuildDate>Mon, 06 Jul 2026 21:51:53 +0200</lastBuildDate>
+			<lastBuildDate>Sun, 02 Aug 2026 14:21:21 +0200</lastBuildDate>
 		
 			<atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
 			<item>
-				<title>Gitops</title>
-				<link>http://localhost:1313/tags/gitops/</link>
-				<pubDate>Mon, 06 Jul 2026 21:51:53 +0200</pubDate>
-				<guid>http://localhost:1313/tags/gitops/</guid>
+				<title>Flux</title>
+				<link>http://localhost:1313/tags/flux/</link>
+				<pubDate>Sun, 02 Aug 2026 14:21:21 +0200</pubDate>
+				<guid>http://localhost:1313/tags/flux/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Kubernetes</title>
 				<link>http://localhost:1313/tags/kubernetes/</link>
-				<pubDate>Mon, 06 Jul 2026 21:51:53 +0200</pubDate>
+				<pubDate>Sun, 02 Aug 2026 14:21:21 +0200</pubDate>
 				<guid>http://localhost:1313/tags/kubernetes/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Talos</title>
+				<link>http://localhost:1313/tags/talos/</link>
+				<pubDate>Sun, 02 Aug 2026 14:21:21 +0200</pubDate>
+				<guid>http://localhost:1313/tags/talos/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Neovim</title>
+				<link>http://localhost:1313/tags/neovim/</link>
+				<pubDate>Tue, 28 Jul 2026 19:23:28 +0200</pubDate>
+				<guid>http://localhost:1313/tags/neovim/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Homelab</title>
 				<link>http://localhost:1313/tags/homelab/</link>
-				<pubDate>Mon, 06 Jul 2026 16:12:52 +0200</pubDate>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
 				<guid>http://localhost:1313/tags/homelab/</guid>
 				<description></description>
 			</item>
