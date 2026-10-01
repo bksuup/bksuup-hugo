@@ -41,12 +41,5 @@
 				<guid>http://localhost:1313/tags/neovim/</guid>
 				<description></description>
 			</item>
-			<item>
-				<title>Homelab</title>
-				<link>http://localhost:1313/tags/homelab/</link>
-				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/tags/homelab/</guid>
-				<description></description>
-			</item>
 	</channel>
 </rss>
