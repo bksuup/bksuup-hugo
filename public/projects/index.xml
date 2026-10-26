@@ -1,18 +1,24 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Projects on Bjørn Kristian</title>
-    <link>http://localhost:1313/projects/</link>
-    <description>Recent content in Projects on Bjørn Kristian</description>
-    <generator>Hugo</generator>
-    <language>en</language>
-    <atom:link href="http://localhost:1313/projects/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title></title>
-      <link>http://localhost:1313/projects/projects/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/projects/projects/</guid>
-      <description>&lt;h2 id=&#34;project&#34;&gt;&#xA;  project&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#project&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;</description>
-    </item>
-  </channel>
+	<channel>
+		<title>Projects on Home</title>
+		<link>http://localhost:1313/projects/</link>
+		<description>Recent content in Projects on Home</description>
+		<generator>Hugo</generator>
+		<language>en</language>
+		
+		
+		
+		
+			<lastBuildDate>Mon, 26 Oct 2026 12:38:34 +0100</lastBuildDate>
+		
+			<atom:link href="http://localhost:1313/projects/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Kubernetes: from 0 to 1</title>
+				<link>http://localhost:1313/projects/kubernetes_0-1/</link>
+				<pubDate>Mon, 26 Oct 2026 12:38:34 +0100</pubDate>
+				<guid>http://localhost:1313/projects/kubernetes_0-1/</guid>
+				<description>&lt;p&gt;This project will be a detailed walkthrough of how i have configured my kubernetes cluster running on a bare-metal server, including how the physical nodes are set up, what software i will be using for the cluster, how my gitops solution works and how i have constructed my workflow around this cluster.&lt;/p&gt;&#xA;&lt;p&gt;This initial post will be covering how to get to a functional cluster.&#xA;There are several additional services that need to be configured in order to serve as a development platform for application development, but that will be covered in another post.&lt;/p&gt;</description>
+			</item>
+	</channel>
 </rss>
